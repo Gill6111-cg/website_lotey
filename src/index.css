@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap");
+
+/* ── Design Tokens ──────────────────────────────────────────── */
+:root {
+  --blue:      #2563EB;
+  --blue-lt:   #38BDF8;
+  --charcoal:  #111318;
+  --surface:   #181c24;
+  --surface2:  #1e2330;
+  --border:    rgba(255,255,255,0.08);
+  --text:      #f1f5f9;
+  --muted:     #94a3b8;
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  background: var(--charcoal);
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--charcoal);
+  color: var(--text);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--charcoal); }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
+
+/* ── Focus ring ─────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--blue-lt);
+  outline-offset: 3px;
+}
+
+/* ── Glassmorphism card helper ──────────────────────────────── */
+.glass {
+  background: rgba(30, 35, 48, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+}
+
+/* ── Section padding helper ─────────────────────────────────── */
+.section {
+  padding: 96px 24px;
+}
+
+@media (max-width: 640px) {
+  .section { padding: 64px 16px; }
+}
+
+/* ── Blue text gradient ─────────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-lt) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Lightbox overlay ───────────────────────────────────────── */
+.lightbox-bg {
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
